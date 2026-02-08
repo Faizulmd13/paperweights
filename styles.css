@@ -1,0 +1,212 @@
+/* --- Global Styles --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #121212;
+  color: #e0e0e0;
+  font-family: "Segoe UI", sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* --- Intro Section Layout --- */
+.intro {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px 8%;
+  gap: 50px;
+  background: #1a1a1a;
+}
+
+.image-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  flex: 1;
+}
+
+.image-container img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid #333;
+  transition: transform 0.3s ease;
+}
+
+.image-container img:hover {
+  transform: scale(1.05);
+  border-color: #ff8c00;
+}
+
+.data-container {
+  flex: 1;
+  position: relative; /* for positioning link */
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+}
+
+.data-container h2 {
+  color: #ff8c00;
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+}
+
+.data-container p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 40px;
+}
+
+/* Container for the link (Relative to .data-container) */
+.links {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* AI styles for coloring SVG */
+.links a img {
+  width: 30px;
+  height: auto;
+  display: block;
+  filter: brightness(0) invert(0.7);
+  transition: filter 0.3s ease, transform 0.2s ease;
+}
+
+.links a:hover img {
+  filter: invert(56%) sepia(87%) saturate(1837%) hue-rotate(1deg)
+    brightness(103%) contrast(105%);
+  transform: scale(1.1);
+}
+
+.links a:hover::after {
+  opacity: 1;
+}
+
+/* --- Infinity Stones Grid --- */
+.stones {
+  padding: 60px 8%;
+}
+
+.stones h3 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2rem;
+  color: #ff8c00;
+  text-transform: uppercase;
+}
+
+.stones-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.stone-card {
+  background: #1e1e1e;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #333;
+}
+
+.stone-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: scale-down;
+}
+
+.stone-card .data {
+  padding: 20px;
+}
+
+.stone-card h4 {
+  display: inline-block;
+  color: #ff8c00;
+  margin-bottom: 10px;
+}
+
+.stone-card a {
+  text-decoration: none;
+}
+
+/* --- Footer --- */
+.footer {
+  margin-top: auto;
+  background: #0a0a0a;
+  border-top: 2px solid #ff8c00;
+  padding: 40px 8%;
+  text-align: center;
+}
+
+.footer-nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 20px 0;
+}
+
+.footer-nav a {
+  color: #888;
+  text-decoration: none;
+}
+
+.footer-nav a:hover {
+  color: #ff8c00;
+}
+
+/* --- Tablets (Screens smaller than 1024px) --- */
+@media (max-width: 1024px) {
+  .intro {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 5%;
+  }
+
+  .image-container {
+    width: 100%;
+  }
+
+  .stones-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+/* --- Mobiles (Screens smaller than 600px) --- */
+@media (max-width: 600px) {
+  .image-container {
+    grid-template-columns: 1fr;
+  }
+
+  /* hide some images for simplicity */
+  .to-hide {
+    display: none;
+  }
+
+  .intro h2 {
+    font-size: 1.8rem;
+  }
+
+  .stones-container {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
